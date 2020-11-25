@@ -325,7 +325,7 @@ def insert_trojan():
     #trojan_edges
 
 def write_trojan(name):
-    with open(name, 'a') as f:
+    with open(name, 'w') as f:
         f.write("-"*40 + "\n")
         f.write("Trojan Template\n")
         f.write("-"*40 + "\n\n")
@@ -393,8 +393,8 @@ def write_with_trojan(name):
             elif "wire" in past_text:
                 seen_wire = True
                 f.write(past_text + "\n")
-            # elif "endmodule" in past_text:
-            #     continue
+            elif "endmodule" in past_text:
+                continue
             else:
                 if global_output in past_text:
                     # if has_gate(past_text):
